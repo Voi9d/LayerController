@@ -1,26 +1,19 @@
 <?php
-require_once './model/ConexaoMysql.php';
+require_once './model/racasModel.php';
 
 if($_POST){
-
+    //Insert something in database
 }else if($_REQUEST){
-
+    //Insert something in database or delete something
+}else{
+    //Select something in database
+    loadAll();
 }
 
-function carregarDados(){
-        //Create a conection object
-        $db = new ConexaoMysql();
-        
-            //Open connection with data base
-            $db->Conectar();
-            //Create Querry
-            $sql = 'SELECT * FROM racas';
-            //Execute Querry Methods
-            $racasList = $db->Consultar($sql);
-            
-            //Desconnect
-            $db->Desconectar();
-            
-            return $racasList;
+function loadAll(){
+    //Create an object of type races
+    $racas = new racasModel();
+    $racasList = $racas->loadAll();
+    return $racasList;
 }
 ?>
