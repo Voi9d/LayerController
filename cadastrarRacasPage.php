@@ -13,6 +13,21 @@
     <body>
         <form method="post" action="controller/racasControler.php">
         <div class="container">
+            <?php
+            if($_REQUEST){
+                $cod = $_REQUEST['cod'];
+
+                if($cod == 'success'){
+                    echo '<div class="alert alert-success">';
+                    echo 'Registro inserido com sucesso';
+                    echo '</div>';
+                }else{
+                    echo '<div class="alert alert-danger">';
+                    echo '<span>Erro:</spam>Ocorreu um erro. Tente mais tarde.';
+                    echo '</div>';
+                }
+            }
+            ?>
         <h1>Cadastro de raças</h1>
         <div class="form-group">
             <label for="nome">Nome:</label>
